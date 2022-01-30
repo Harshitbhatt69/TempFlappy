@@ -36,7 +36,7 @@ public class FlappyBird extends ApplicationAdapter {
 
 	Texture topTube;	//top tube
 	Texture bottomTube;	//bottom tube
-	float gap = 400;	//gap between the tubes
+	float gap = 500;	//gap between the tubes
 	float maxTubeOffset;	//limit of the tube according to screen
 	Random randomGenerator;	//generate random number 0 to 1
 	float tubeVelocity = 4;	//speed acc. to game
