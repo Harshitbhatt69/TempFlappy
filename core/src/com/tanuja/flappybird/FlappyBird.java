@@ -1,5 +1,7 @@
 package com.tanuja.flappybird;
 
+import static java.lang.Thread.sleep;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Graphics;
@@ -46,6 +48,7 @@ public class FlappyBird extends ApplicationAdapter {
 	float distanceBetweenTube;	//dist bt set of tubes in x axis
 	Rectangle[] topTubeRectangle;	//collision det for tubes
 	Rectangle[] bottomTubeRectangle;	//collision det for tubes
+	boolean resume=false;
 
 
 	@Override
@@ -144,12 +147,18 @@ public class FlappyBird extends ApplicationAdapter {
 
 			batch.draw(gameOver, Gdx.graphics.getWidth()/20000,Gdx.graphics.getHeight()/2 - gameOver.getHeight()/2,Gdx.graphics.getWidth(),Gdx.graphics.getHeight()/10);
 
+			font.draw(batch,"Restarting...",Gdx.graphics.getWidth()/5,2*Gdx.graphics.getHeight()/3);
 			if (Gdx.input.justTouched()) {	//as user touches the screen, the game start
 				gamestate=1;	//starting of the game
-				startGame(); //resatart
 				score=0;
 				scoringTube = 0;
 				velocity=0;
+				try {
+					sleep(1000);
+					startGame(); //resatart
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		if (flapstate == 1)	//tracking the wings f the birds
