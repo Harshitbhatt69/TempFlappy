@@ -1,4 +1,4 @@
-package com.tanuja.flappybird;
+package com.harshit.flappybird;
 
 import static java.lang.Thread.sleep;
 
